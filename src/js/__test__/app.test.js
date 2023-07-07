@@ -1,20 +1,14 @@
-import healthSort from '../app';
+import healthLevel from '../app';
 
-const testArr = [
-  { name: 'мечник', health: 10 },
-  { name: 'маг', health: 100 },
-  { name: 'лучник', health: 80 },
+const healthobj = [
+  [{ name: 'Маг', health: 90 }, 'healthy'],
+  [{ name: 'Маг', health: 35 }, 'wounded'],
+  [{ name: 'Маг', health: 7 }, 'critical'],
 ];
 
-const handler = test.each(testArr);
+const handler = test.each(healthobj);
 
-handler('sorting heroes by health level', () => {
-  const sortArr = [
-    { name: 'маг', health: 100 },
-    { name: 'лучник', health: 80 },
-    { name: 'мечник', health: 10 },
-  ];
-
-  const result = healthSort(testArr);
-  expect(result).toEqual(sortArr);
+handler('check healf level for %O', (person, expected) => {
+  const result = healthLevel(person);
+  expect(result).toBe(expected);
 });
