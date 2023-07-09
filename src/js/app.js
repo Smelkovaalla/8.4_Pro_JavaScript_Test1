@@ -1,4 +1,8 @@
-export default function healthSort(arr) {
-  const sortArr = arr.sort((a, b) => (a.health > b.health ? -1 : 1));
-  return sortArr;
+export default function healthLevel(obj) {
+  if (obj.health > 50) {
+    return 'healthy';
+  } if (obj.health < 15) {
+    return 'critical';
+  }
+  return 'wounded';
 }
